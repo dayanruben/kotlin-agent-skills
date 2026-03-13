@@ -1,3 +1,5 @@
+[![Incubator](https://jb.gg/badges/incubator-plastic.svg)](https://github.com/JetBrains#jetbrains-on-github)
+
 # AI agent skills for Kotlin
 
 A collection of AI agent skills useful for projects using the Kotlin language. Skills are following the Agent Skills
