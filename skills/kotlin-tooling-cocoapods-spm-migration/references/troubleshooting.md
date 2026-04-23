@@ -4,26 +4,6 @@ Common issues and solutions when migrating from CocoaPods to SwiftPM.
 
 ## Gradle Issues
 
-### "swiftPMDependencies not found"
-
-**Symptom:** Unresolved reference to `swiftPMDependencies` in build.gradle.kts
-
-**Solution:** Add buildscript constraint to root build.gradle.kts:
-
-```kotlin
-buildscript {
-    dependencies.constraints {
-        "classpath"("org.jetbrains.kotlin:kotlin-gradle-plugin:<kotlin-version>!!")
-    }
-}
-```
-
-Also verify:
-- Kotlin version matches the version recorded in Phase 1.0a in libs.versions.toml
-- Custom Maven repo (if needed) is in settings.gradle.kts
-
----
-
 ### Import Not Found After Migration
 
 **Symptom:** `Unresolved reference` errors for classes that worked with CocoaPods
@@ -306,13 +286,13 @@ With a static framework, all symbols are embedded in the `.a` archive. No `LC_LO
 
 **Symptom:** Build fails with cinterop errors on modules like `grpc`, `absl`, `leveldb`, `openssl_grpc`, or other C++ transitive dependencies of Firebase.
 
-**Cause:** `discoverModulesImplicitly = true` (the default) makes Kotlin attempt cinterop on every Clang module in the dependency graph, including C++ modules that are not compatible.
+**Cause:** `discoverClangModulesImplicitly = true` (the default) makes Kotlin attempt cinterop on every Clang module in the dependency graph, including C++ modules that are not compatible.
 
-**Solution:** Set `discoverModulesImplicitly = false` and explicitly list only the Firebase Clang modules you need:
+**Solution:** Set `discoverClangModulesImplicitly = false` and explicitly list only the Firebase Clang modules you need:
 
 ```kotlin
 swiftPMDependencies {
-    discoverModulesImplicitly = false
+    discoverClangModulesImplicitly = false
 
     swiftPackage(
         url = url("https://github.com/firebase/firebase-ios-sdk.git"),
