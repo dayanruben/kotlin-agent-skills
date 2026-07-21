@@ -1,6 +1,6 @@
 # How to contribute to this repository?
 
-This repository is a curated catalogue of skills for the Kotlin language and kotlinx. libraries. Our goal is to provide Kotlin skills that are useful, maintainable, are easy to discover and safe. We will not accept skills that are using/adding some third-party dependencies. Exceptions are well-known and widely used libraries. Before submitting a new skill, please check the existing skill catalogue. If there is an overlap, we might suggest extending an existing skill instead. 
+This repository is a curated catalogue of skills for the Kotlin language and kotlinx libraries. Our goal is to provide Kotlin skills that are useful, maintainable, are easy to discover and safe. We will not accept skills that are using/adding some third-party dependencies. Exceptions are well-known and widely used libraries. Before submitting a new skill, please check the existing skill catalogue. If there is an overlap, we might suggest extending an existing skill instead. 
 
 ## Process overview
 
